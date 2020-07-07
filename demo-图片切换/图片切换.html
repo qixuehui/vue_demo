@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>图片切换</title>
+    <link rel="stylesheet" href="./css/index.css" />
+</head>
+
+<body>
+    <div id="mask">
+        <div class="center">
+            <h2 class="title">
+                <img src="./images/logo.png" alt=""> 深圳创维校区环境
+            </h2>
+            <!-- 图片 -->
+            <img v-bind:src="imgSrc" alt="" />
+            <!-- 左箭头 -->
+            <a href="javascript:void(0)" class="left" @click="clickl">
+                <img src="./images/prev.png" alt="" />
+            </a>
+            <!-- 右箭头 -->
+            <a href="javascript:void(0)" class="right" @click="clickl">
+                <img src="./images/next.png" alt="" />
+            </a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#mask',
+            data: {
+                sum: 0,
+                imgSrc: './images/00.jpg'
+            },
+            methods: {
+                clickl: function() {
+                    console.log(this.imgSrc);
+
+                    if (this.sum == 0) {
+                        this.sum = 10
+                    }
+                    this.sum -= 1
+                    this.imgSrc = './images/0' + this.sum + '.jpg'
+                },
+                clickr: function() {
+                    if (this.sum == 10) {
+                        this.sum = 0
+                    }
+                    this.sum += 1
+                    this.imgSrc = './images/0' + this.sum + '.jpg'
+                }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
