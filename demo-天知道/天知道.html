@@ -21,7 +21,8 @@
           </button>
             </div>
             <div class="hotkey">
-                <a href="javascript:;" v-for='city in citys' @click="clickSearch(city)"> {{city}}</a>
+                <!-- v-for='city in citys' -->
+                <a href="javascript:;" v-for="city in citys" @click="clickSearch(city)">{{ city }}</a>
             </div>
         </div>
         <ul class="weather_list">
@@ -44,30 +45,28 @@
         var app = new Vue({
             el: '#app',
             data: {
-                citys: ["北京", "上海", "广州", "深圳", "海南"],
                 message: "北京",
                 listCitys: [],
+                citys: ["北京", "上海", "广州", "深圳", "海南"]
             },
             methods: {
+                clickSearch: function(city) {
+                    this.message = city
+                    this.search()
+                },
                 search: function() {
                     axios.get(`http://wthrcdn.etouch.cn/weather_mini?city=${this.message}`).then(
                         res => {
                             console.log(res)
                             this.listCitys = res.data.data.forecast
                             console.log(this.listCitys);
-                        }, err => {
-                            console.log(err);
-                        }, () => {
-
                         }
-                    )
+                    ).catch(err => {
+                        console.log(err);
+                    })
                 }
-            },
-            // 不知名错误
-            clickSearch: function(mes) {
-                this.message = mes
-                this.search()
             }
+
         })
     </script>
 </body>
