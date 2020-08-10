@@ -1,5 +1,6 @@
 # vue_demo
 整个demo的css是直接模板的，vue.js是本人写的，后端接口时直接用现成的，基本没有bug可放心食用
+![login](https://github.com/qixuehui/CSS_demo/blob/master/img/1.png)
 #### 计数器
 ---->可以进行数据的增加和减小ps:最小为0 最大为100
 #### 记事本
