@@ -6,11 +6,13 @@ module.exports = {
             extensions: [],
             //别名
             alias: {
+                'assets': '@/assets',
                 'components': '@/components',
                 'content': 'components/content',
                 'common': 'components/common',
-                'assets': '@/assets',
                 'network': '@/network',
+                'router': '@/router',
+                'store': '@/store',
                 'views': '@/views',
             }
         }
