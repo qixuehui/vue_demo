@@ -8,6 +8,7 @@
 
 <script type="text/ecmascript-6">
 import Navbar from "components/common/navbar/NavBar";
+import { getHomeMultidata } from "network/home";
 export default {
   name: "Home",
   data() {
@@ -15,6 +16,12 @@ export default {
   },
   components: {
     Navbar,
+  },
+  //创建组件的时候，生命周期
+  created() {
+    getHomeMultidata().then((res) => {
+      console.log(res);
+    });
   },
 };
 </script>
