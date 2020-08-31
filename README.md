@@ -1,7 +1,8 @@
 # vue_demo
 #### 不知道什么原因有时候可以显示图片，有时候不可以显示
 如果不可以，就只能直接下载项目查看img下的图片
-整个demo的css是直接模板的，vue.js是本人写的，后端接口时直接用现成的，基本没有bug可放心食用
+vue_demo学习视频 ：[https://www.bilibili.com/video/BV12J411m7MG?from=search&seid=21064317838616566]: 
+mall学习链接：[https://www.bilibili.com/video/BV15741177Eh?p=1]: 
 #### 计数器
 ---->可以进行数据的增加和减小ps:最小为0 最大为100
 ![login](https://github.com/qixuehui/vue_demo/blob/master/img/1.png)
