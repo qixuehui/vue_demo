@@ -17,3 +17,23 @@
 #### 音乐播放器
 ---->在搜索框里输入你要听的歌，会跳出你搜寻的歌曲(网易接口),可以听，可观看mv，目前的问题就是歌词的显示(本人在页面已经留了位置，但是由于接口中没有看到歌词的api所以目前还没有完善此功能)
 ![login](https://github.com/qixuehui/vue_demo/blob/master/img/5.png)
+
+#### mall商城
+---->vue axios vue-router vuex vuecli 仿蘑菇街
+首页
+![login](https://github.com/qixuehui/vue_demo/blob/master/img/mall-1.png)
+
+分类
+![login](https://github.com/qixuehui/vue_demo/blob/master/img/mall-2.png)
+
+物品详情
+![login](https://github.com/qixuehui/vue_demo/blob/master/img/mall-3.png)
+
+购物车
+![login](https://github.com/qixuehui/vue_demo/blob/master/img/mall-4.png)
+
+个人信息
+![login](https://github.com/qixuehui/vue_demo/blob/master/img/mall-5.png)
+
+
+
