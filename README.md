@@ -1,7 +1,9 @@
 # vue_demo
 #### 不知道什么原因有时候可以显示图片，有时候不可以显示
 如果不可以，就只能直接下载项目查看img下的图片
+
 vue_demo学习视频 ：[https://www.bilibili.com/video/BV12J411m7MG?from=search&seid=21064317838616566]: 
+
 mall学习链接：[https://www.bilibili.com/video/BV15741177Eh?p=1]: 
 #### 计数器
 ---->可以进行数据的增加和减小ps:最小为0 最大为100
@@ -21,19 +23,25 @@ mall学习链接：[https://www.bilibili.com/video/BV15741177Eh?p=1]:
 
 #### mall商城
 ---->vue axios vue-router vuex vuecli 仿蘑菇街
+
 首页
+
 ![login](https://github.com/qixuehui/vue_demo/blob/master/img/mall-1.png)
 
 分类
+
 ![login](https://github.com/qixuehui/vue_demo/blob/master/img/mall-2.png)
 
 物品详情
+
 ![login](https://github.com/qixuehui/vue_demo/blob/master/img/mall-3.png)
 
 购物车
+
 ![login](https://github.com/qixuehui/vue_demo/blob/master/img/mall-4.png)
 
 个人信息
+
 ![login](https://github.com/qixuehui/vue_demo/blob/master/img/mall-5.png)
 
 
