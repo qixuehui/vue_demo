@@ -1,33 +1,13 @@
 <!--  -->
 <template>
-  <Swiper>
+  <!-- ? -->
+  <Swiper ref="swiper" v-if="banners.length">
     <!--SwiperItem 或者 swiper-item-->
     <!--:src 没有冒号就是一个字符串了 这个有接口的时候使用的方法-->
-    <!--如果有接口使用其
-			<SwiperItem v-for="(item, index) in banners" :key="index">
-      <a href="item.link">
-        <img :src="item.image" alt />
-      </a>
-    </SwiperItem>-->
-    <!--没有接口使用-->
-    <SwiperItem>
-      <a href="#">
-        <img src="~assets/img/home/swiper/1.jpg" alt />
-      </a>
-    </SwiperItem>
-    <SwiperItem>
-      <a href="#">
-        <img src="~assets/img/home/swiper/2.jpg" alt />
-      </a>
-    </SwiperItem>
-    <SwiperItem>
-      <a href="#">
-        <img src="~assets/img/home/swiper/3.jpg" alt />
-      </a>
-    </SwiperItem>
-    <SwiperItem>
-      <a href="#">
-        <img src="~assets/img/home/swiper/4.jpg" alt />
+    <!--如果有接口使用其-->
+    <SwiperItem v-for="(item, index) in banners" :key="index">
+      <a :href="item.link">
+        <img :src="item.image" />
       </a>
     </SwiperItem>
   </Swiper>
@@ -55,7 +35,16 @@ export default {
   //监控data中的数据变化
   watch: {},
   //方法集合
-  methods: {},
+  methods: {
+    stopTimer() {
+      this.$refs.swiper.stopTimer();
+    },
+    startTimer() {
+      if (this.$refs.swiper) {
+        this.$refs.swiper.startTimer();
+      }
+    },
+  },
   //生命周期 - 创建完成（可以访问当前this实例）
   created() {},
   //生命周期 - 挂载完成（可以访问DOM元素）

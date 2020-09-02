@@ -1,21 +1,21 @@
 <!-- 商品组件  -->
 <template>
   <div class="goodsList">
-    <!-- 插槽 -->
-    <slot>
-      <!--获取有多少个item 将item往上传 在GoodsItem处理数据-->
-      <GoodsItem v-for="(item,index)in goodsList" :key="index" :goods="item"></GoodsItem>
-    </slot>
+    <!--获取有多少个item 将item往上传 在GoodsItem处理数据-->
+    <!--<GoodsItem v-for="(item,index) in goodsList" :key="index" :goods="item"></GoodsItem>-->
+    <GoodsItem v-for="(item,index) in  goodsList" :key="index" :goods="item" />
   </div>
 </template>
 
 <script>
 import GoodsItem from "./GoodsItem";
 export default {
+  name: "",
   data() {
     //这里存放数据
     return {};
   },
+  // 父传子 获取请求到的数据
   props: {
     goodsList: {
       type: Array,
@@ -23,9 +23,9 @@ export default {
         return [];
       },
     },
-    components: {
-      GoodsItem,
-    },
+  },
+  components: {
+    GoodsItem,
   },
   //监听属性 类似于data概念
   computed: {},
@@ -48,4 +48,8 @@ export default {
 </script>
 <style scoped>
 /* @import url(); 引入公共css类 */
+.goodsList {
+  display: flex;
+  flex-wrap: wrap;
+}
 </style>

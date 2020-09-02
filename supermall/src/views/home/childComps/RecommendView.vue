@@ -1,41 +1,14 @@
 <!--home页面的推荐界面  -->
 <template>
   <div class="recommend">
-    <!--<a href="http://act.mogujie.com/zzlx67">
-      <img src="~assets/img/home/recommend_bg.jpg" alt />
-    </a>-->
     <!--如果有接口使用其
-		:key="index" 是因为vue的组件是有复用性的所以一般加上:key="index"来取消当前页面的复用
+		 :key="index" 是因为vue的组件是有复用性的所以一般加上:key="index"来取消当前页面的复用
+    -->
     <div class="recommend-item" v-for="(item, index) in recommend" :key="index">
-      <a href="item.link">
+      <a :href="item.link">
         <img :src="item.image" alt />
         <p>{{item.title}}</p>
       </a>
-    </div>-->
-    <!--没有接口使用其-->
-    <div>
-      <a href="http://act.mogujie.com/zzlx67">
-        <img src="~assets/img/home/recommend/1.png" alt />
-      </a>
-      <p>购物1</p>
-    </div>
-    <div>
-      <a href="http://act.mogujie.com/zzlx67">
-        <img src="~assets/img/home/recommend/2.png" alt />
-      </a>
-      <p>购物2</p>
-    </div>
-    <div>
-      <a href="http://act.mogujie.com/zzlx67">
-        <img src="~assets/img/home/recommend/3.png" alt />
-      </a>
-      <p>购物3</p>
-    </div>
-    <div>
-      <a href="http://act.mogujie.com/zzlx67">
-        <img src="~assets/img/home/recommend/4.png" alt />
-      </a>
-      <p>购物4</p>
     </div>
   </div>
 </template>

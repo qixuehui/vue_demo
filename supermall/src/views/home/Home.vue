@@ -8,58 +8,7 @@
     <RecommendView :recommend="recommend" />
     <FeaturView />
     <TabControl class="tab-control" :titles="['流行', '新款', '精选']"></TabControl>
-    <ul>
-      <li>列表1</li>
-      <li>列表2</li>
-      <li>列表3</li>
-      <li>列表4</li>
-      <li>列表5</li>
-      <li>列表6</li>
-      <li>列表7</li>
-      <li>列表8</li>
-      <li>列表9</li>
-      <li>列表10</li>
-      <li>列表11</li>
-      <li>列表12</li>
-      <li>列表13</li>
-      <li>列表14</li>
-      <li>列表15</li>
-      <li>列表16</li>
-      <li>列表17</li>
-      <li>列表18</li>
-      <li>列表19</li>
-      <li>列表20</li>
-      <li>列表21</li>
-      <li>列表22</li>
-      <li>列表23</li>
-      <li>列表24</li>
-      <li>列表25</li>
-      <li>列表26</li>
-      <li>列表27</li>
-      <li>列表28</li>
-      <li>列表29</li>
-      <li>列表30</li>
-      <li>列表31</li>
-      <li>列表32</li>
-      <li>列表33</li>
-      <li>列表34</li>
-      <li>列表35</li>
-      <li>列表36</li>
-      <li>列表37</li>
-      <li>列表38</li>
-      <li>列表39</li>
-      <li>列表40</li>
-      <li>列表41</li>
-      <li>列表42</li>
-      <li>列表43</li>
-      <li>列表44</li>
-      <li>列表45</li>
-      <li>列表46</li>
-      <li>列表47</li>
-      <li>列表48</li>
-      <li>列表49</li>
-      <li>列表50</li>
-    </ul>
+    <GoodsList :goodsList="goodsList['pop'].list" />
   </div>
 </template>
 
@@ -72,6 +21,7 @@ import FeaturView from "./childComps/FeaturView";
 //公共组件
 import Navbar from "components/common/navbar/NavBar";
 import TabControl from "components/comtent/tabControl/TabControl";
+import GoodsList from "components/comtent/goods/GoodsList";
 
 // 方法导入
 import { getHomeMultidata, getHomeData } from "network/home";
@@ -80,13 +30,449 @@ export default {
   data() {
     return {
       //轮播图
-      banners: [],
+      banners: [
+        {
+          link: "#",
+          image:
+            "https://s10.mogucdn.com/mlcdn/c45406/180917_18l981g6clk33fbl3833ja357aaa0_750x390.jpg",
+        },
+        {
+          link: "#",
+          image:
+            "https://s10.mogucdn.com/mlcdn/c45406/180926_31eb9h75jc217k7iej24i2dd0jba3_750x390.jpg",
+        },
+        {
+          link: "#",
+          image:
+            "https://s10.mogucdn.com/mlcdn/c45406/180926_31eb9h75jc217k7iej24i2dd0jba3_750x390.jpg",
+        },
+        {
+          link: "#",
+          image:
+            "https://s10.mogucdn.com/mlcdn/c45406/180919_3f62ijgkj656k2lj03dh0di4iflea_750x390.jpg",
+        },
+      ],
       //轮播图下面的数据
-      recommend: [],
+      recommend: [
+        {
+          image:
+            "https://s10.mogucdn.com/mlcdn/c45406/180913_8d4e5adi8llg7c47lgh2291akiec7_225x225.png",
+          link: "#",
+          title: "初秋上新",
+        },
+        {
+          image:
+            "https://s10.mogucdn.com/mlcdn/c45406/180913_387kgl3j21ff29lh04181iek48a6h_225x225.png",
+          link: "#",
+          title: "内购福利",
+        },
+        {
+          image:
+            "https://s10.mogucdn.com/mlcdn/c45406/180913_036dli57aah85cb82l1jj722g887g_225x225.png",
+          link: "#",
+          title: "好物特卖",
+        },
+        {
+          image:
+            "https://s10.mogucdn.com/mlcdn/c45406/180913_8d4e5adi8llg7c47lgh2291akiec7_225x225.png",
+          link: "#",
+          title: "十点抢卷",
+        },
+      ],
       goodsList: {
-        pop: { page: 0, list: [] },
-        new: { page: 0, list: [] },
-        sell: { page: 0, list: [] },
+        new: {
+          page: 0,
+          list: [
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190906_59i021a4864jlg0731c462f516l3e_640x960.jpg",
+              title: "童装男童春秋套装2020新款...",
+              price: "79.8",
+              cfav: "✨ 84",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/181019_055b79i095fg86ia2d0l51l3a0c5g_640x960.jpg",
+              title: "020夏季英伦男鞋子韩版潮流...",
+              price: "159.9",
+              cfav: "✨ 862",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/200516_2ca4ah05ldj0f0f2c43dlehld18c6_750x1000.jpg",
+              title: "第2件半价】完美日记哑光唇釉...",
+              price: "39.9",
+              cfav: "✨ 14653",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190525_17e4877h3i4e1d8c9fb869g1kllle_640x960.jpg",
+              title: "买1送牙刷抖音同款牙粉美牙膏口...",
+              price: "39.9",
+              cfav: "✨ 7239",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/200516_2ca4ah05ldj0f0f2c43dlehld18c6_750x1000.jpg",
+              title: "第2件半价】完美日记哑光唇釉...",
+              price: "39.9",
+              cfav: "✨ 14653",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190525_17e4877h3i4e1d8c9fb869g1kllle_640x960.jpg",
+              title: "买1送牙刷抖音同款牙粉美牙膏口...",
+              price: "39.9",
+              cfav: "✨ 7239",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190906_59i021a4864jlg0731c462f516l3e_640x960.jpg",
+              title: "童装男童春秋套装2020新款...",
+              price: "79.8",
+              cfav: "✨ 84",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/181019_055b79i095fg86ia2d0l51l3a0c5g_640x960.jpg",
+              title: "020夏季英伦男鞋子韩版潮流...",
+              price: "159.9",
+              cfav: "✨ 862",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/200516_2ca4ah05ldj0f0f2c43dlehld18c6_750x1000.jpg",
+              title: "第2件半价】完美日记哑光唇釉...",
+              price: "39.9",
+              cfav: "✨ 14653",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190525_17e4877h3i4e1d8c9fb869g1kllle_640x960.jpg",
+              title: "买1送牙刷抖音同款牙粉美牙膏口...",
+              price: "39.9",
+              cfav: "✨ 7239",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/200516_2ca4ah05ldj0f0f2c43dlehld18c6_750x1000.jpg",
+              title: "第2件半价】完美日记哑光唇釉...",
+              price: "39.9",
+              cfav: "✨ 14653",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190525_17e4877h3i4e1d8c9fb869g1kllle_640x960.jpg",
+              title: "买1送牙刷抖音同款牙粉美牙膏口...",
+              price: "39.9",
+              cfav: "✨ 7239",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190906_59i021a4864jlg0731c462f516l3e_640x960.jpg",
+              title: "童装男童春秋套装2020新款...",
+              price: "79.8",
+              cfav: "✨ 84",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/181019_055b79i095fg86ia2d0l51l3a0c5g_640x960.jpg",
+              title: "020夏季英伦男鞋子韩版潮流...",
+              price: "159.9",
+              cfav: "✨ 862",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/200516_2ca4ah05ldj0f0f2c43dlehld18c6_750x1000.jpg",
+              title: "第2件半价】完美日记哑光唇釉...",
+              price: "39.9",
+              cfav: "✨ 14653",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190525_17e4877h3i4e1d8c9fb869g1kllle_640x960.jpg",
+              title: "买1送牙刷抖音同款牙粉美牙膏口...",
+              price: "39.9",
+              cfav: "✨ 7239",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/200516_2ca4ah05ldj0f0f2c43dlehld18c6_750x1000.jpg",
+              title: "第2件半价】完美日记哑光唇釉...",
+              price: "39.9",
+              cfav: "✨ 14653",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190525_17e4877h3i4e1d8c9fb869g1kllle_640x960.jpg",
+              title: "买1送牙刷抖音同款牙粉美牙膏口...",
+              price: "39.9",
+              cfav: "✨ 7239",
+            },
+          ],
+        },
+        pop: {
+          page: 0,
+          list: [
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/200516_2ca4ah05ldj0f0f2c43dlehld18c6_750x1000.jpg",
+              title: "第2件半价】完美日记哑光唇釉...",
+              price: "39.9",
+              cfav: "✨ 14653",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190525_17e4877h3i4e1d8c9fb869g1kllle_640x960.jpg",
+              title: "买1送牙刷抖音同款牙粉美牙膏口...",
+              price: "39.9",
+              cfav: "✨ 7239",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190724_25hha590h023601484649g8fd654h_640x960.jpg",
+              title: "秋季新款韩版系带蝴蝶结收腰连...",
+              price: "59",
+              cfav: "✨ 2951",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190507_4c8876ei20ai58d713f421j1k75gg_800x1200.jpg",
+              title: "版甜美小清新宽松显瘦雪纺衫防...",
+              price: "49",
+              cfav: "✨ 19060",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190525_17e4877h3i4e1d8c9fb869g1kllle_640x960.jpg",
+              title: "买1送牙刷抖音同款牙粉美牙膏口...",
+              price: "39.9",
+              cfav: "✨ 7239",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190724_25hha590h023601484649g8fd654h_640x960.jpg",
+              title: "秋季新款韩版系带蝴蝶结收腰连...",
+              price: "59",
+              cfav: "✨ 2951",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/200516_2ca4ah05ldj0f0f2c43dlehld18c6_750x1000.jpg",
+              title: "第2件半价】完美日记哑光唇釉...",
+              price: "39.9",
+              cfav: "✨ 14653",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190525_17e4877h3i4e1d8c9fb869g1kllle_640x960.jpg",
+              title: "买1送牙刷抖音同款牙粉美牙膏口...",
+              price: "39.9",
+              cfav: "✨ 7239",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190724_25hha590h023601484649g8fd654h_640x960.jpg",
+              title: "秋季新款韩版系带蝴蝶结收腰连...",
+              price: "59",
+              cfav: "✨ 2951",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190507_4c8876ei20ai58d713f421j1k75gg_800x1200.jpg",
+              title: "版甜美小清新宽松显瘦雪纺衫防...",
+              price: "49",
+              cfav: "✨ 19060",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190525_17e4877h3i4e1d8c9fb869g1kllle_640x960.jpg",
+              title: "买1送牙刷抖音同款牙粉美牙膏口...",
+              price: "39.9",
+              cfav: "✨ 7239",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190724_25hha590h023601484649g8fd654h_640x960.jpg",
+              title: "秋季新款韩版系带蝴蝶结收腰连...",
+              price: "59",
+              cfav: "✨ 2951",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/200516_2ca4ah05ldj0f0f2c43dlehld18c6_750x1000.jpg",
+              title: "第2件半价】完美日记哑光唇釉...",
+              price: "39.9",
+              cfav: "✨ 14653",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190525_17e4877h3i4e1d8c9fb869g1kllle_640x960.jpg",
+              title: "买1送牙刷抖音同款牙粉美牙膏口...",
+              price: "39.9",
+              cfav: "✨ 7239",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190724_25hha590h023601484649g8fd654h_640x960.jpg",
+              title: "秋季新款韩版系带蝴蝶结收腰连...",
+              price: "59",
+              cfav: "✨ 2951",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190507_4c8876ei20ai58d713f421j1k75gg_800x1200.jpg",
+              title: "版甜美小清新宽松显瘦雪纺衫防...",
+              price: "49",
+              cfav: "✨ 19060",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190525_17e4877h3i4e1d8c9fb869g1kllle_640x960.jpg",
+              title: "买1送牙刷抖音同款牙粉美牙膏口...",
+              price: "39.9",
+              cfav: "✨ 7239",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190724_25hha590h023601484649g8fd654h_640x960.jpg",
+              title: "秋季新款韩版系带蝴蝶结收腰连...",
+              price: "59",
+              cfav: "✨ 2951",
+            },
+          ],
+        },
+        sell: {
+          page: 0,
+          list: [
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/180122_34447515be969k225dc8dbe217fe5_640x960.jpg",
+              title: "50片】国妆特证祛斑婴儿蚕丝...",
+              price: "79",
+              cfav: "✨ 629",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/p2/161020/105269942_1k0fhjh784ia049gjk0ggd5a417li_640x960.png",
+              title: "25纯银耳钉韩版时尚百搭日韩...",
+              price: "19.17",
+              cfav: "✨ 5360",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190525_17e4877h3i4e1d8c9fb869g1kllle_640x960.jpg",
+              title: "买1送牙刷抖音同款牙粉美牙膏口...",
+              price: "39.9",
+              cfav: "✨ 7239",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190724_25hha590h023601484649g8fd654h_640x960.jpg",
+              title: "秋季新款韩版系带蝴蝶结收腰连...",
+              price: "59",
+              cfav: "✨ 2951",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190525_17e4877h3i4e1d8c9fb869g1kllle_640x960.jpg",
+              title: "买1送牙刷抖音同款牙粉美牙膏口...",
+              price: "39.9",
+              cfav: "✨ 7239",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190724_25hha590h023601484649g8fd654h_640x960.jpg",
+              title: "秋季新款韩版系带蝴蝶结收腰连...",
+              price: "59",
+              cfav: "✨ 2951",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/180122_34447515be969k225dc8dbe217fe5_640x960.jpg",
+              title: "50片】国妆特证祛斑婴儿蚕丝...",
+              price: "79",
+              cfav: "✨ 629",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/p2/161020/105269942_1k0fhjh784ia049gjk0ggd5a417li_640x960.png",
+              title: "25纯银耳钉韩版时尚百搭日韩...",
+              price: "19.17",
+              cfav: "✨ 5360",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190525_17e4877h3i4e1d8c9fb869g1kllle_640x960.jpg",
+              title: "买1送牙刷抖音同款牙粉美牙膏口...",
+              price: "39.9",
+              cfav: "✨ 7239",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190724_25hha590h023601484649g8fd654h_640x960.jpg",
+              title: "秋季新款韩版系带蝴蝶结收腰连...",
+              price: "59",
+              cfav: "✨ 2951",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190525_17e4877h3i4e1d8c9fb869g1kllle_640x960.jpg",
+              title: "买1送牙刷抖音同款牙粉美牙膏口...",
+              price: "39.9",
+              cfav: "✨ 7239",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190724_25hha590h023601484649g8fd654h_640x960.jpg",
+              title: "秋季新款韩版系带蝴蝶结收腰连...",
+              price: "59",
+              cfav: "✨ 2951",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/180122_34447515be969k225dc8dbe217fe5_640x960.jpg",
+              title: "50片】国妆特证祛斑婴儿蚕丝...",
+              price: "79",
+              cfav: "✨ 629",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/p2/161020/105269942_1k0fhjh784ia049gjk0ggd5a417li_640x960.png",
+              title: "25纯银耳钉韩版时尚百搭日韩...",
+              price: "19.17",
+              cfav: "✨ 5360",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190525_17e4877h3i4e1d8c9fb869g1kllle_640x960.jpg",
+              title: "买1送牙刷抖音同款牙粉美牙膏口...",
+              price: "39.9",
+              cfav: "✨ 7239",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190724_25hha590h023601484649g8fd654h_640x960.jpg",
+              title: "秋季新款韩版系带蝴蝶结收腰连...",
+              price: "59",
+              cfav: "✨ 2951",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190525_17e4877h3i4e1d8c9fb869g1kllle_640x960.jpg",
+              title: "买1送牙刷抖音同款牙粉美牙膏口...",
+              price: "39.9",
+              cfav: "✨ 7239",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/190724_25hha590h023601484649g8fd654h_640x960.jpg",
+              title: "秋季新款韩版系带蝴蝶结收腰连...",
+              price: "59",
+              cfav: "✨ 2951",
+            },
+          ],
+        },
       },
     };
   },
@@ -97,37 +483,38 @@ export default {
 
     Navbar,
     TabControl,
+    GoodsList,
   },
   //创建组件的时候，生命周期
   created() {
     //获取请求多个数据
-    this.getMultiData();
-    //获取商品数据
-    this.getHomeProducts("pop");
-    this.getHomeProducts("new");
-    this.getHomeProducts("sell");
+    // this.getMultiData();
+    // //获取商品数据
+    // this.getHomeProducts("pop");
+    // this.getHomeProducts("new");
+    // this.getHomeProducts("sell");
   },
   methods: {
     /**
      * 网络请求相关方法
      */
-    getMultiData() {
-      getHomeMultidata().then((res) => {
-        // console.log(res);
-        // 轮播图数据;
-        this.banners = res.data.banner.list;
-        this.recommend = res.data.recommend.list;
-      });
-    },
-    getHomeProducts(type) {
-      //获取到相对应的数据
-      // 看页数的开始是0还是1
-      getHomeData(type, this.goodsList[type].page + 1).then((res) => {
-        const goodsList = res.data.list;
-        this.goodsList[type].list.push(...goodsList);
-        this.goodsList[type].page += 1;
-      });
-    },
+    // getMultiData() {
+    //   getHomeMultidata().then((res) => {
+    //     // console.log(res);
+    //     // 轮播图数据;
+    //     this.banners = res.data.banner.list;
+    //     this.recommend = res.data.recommend.list;
+    //   });
+    // },
+    // getHomeProducts(type) {
+    //   //获取到相对应的数据
+    //   // 看页数的开始是0还是1
+    //   getHomeData(type, this.goodsList[type].page).then((res) => {
+    //     const goodsLists = res.data.list;
+    //     this.goodsList[type].list.push(...goodsLists);
+    //     this.goodsList[type].page += 1;
+    //   });
+    // },
   },
 };
 </script>
