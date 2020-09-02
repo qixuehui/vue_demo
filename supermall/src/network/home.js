@@ -1,10 +1,10 @@
 import { request } from './request'
 
-//?
+//导出 轮播数据和推荐数据
 export const BANNER = 'banner'
 export const RECOMMEND = 'recommend'
 
-
+//home数据
 export function getHomeMultidata() {
     //home数据
     // return request({
@@ -19,7 +19,7 @@ export function getHomeMultidata() {
         url: '/home/multidata'
     })
 }
-
+// goodlist数据
 export function getHomeData(type, page) {
     //xxx
     return request({

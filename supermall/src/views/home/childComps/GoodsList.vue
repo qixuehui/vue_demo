@@ -1,22 +1,31 @@
-<!--  -->
+<!-- 商品组件  -->
 <template>
-  <div class>
-    <Swiper>
-      <SwiperItrm></SwiperItrm>
-    </Swiper>
+  <div class="goodsList">
+    <!-- 插槽 -->
+    <slot>
+      <!--获取有多少个item 将item往上传 在GoodsItem处理数据-->
+      <GoodsItem v-for="(item,index)in goodsList" :key="index" :goods="item"></GoodsItem>
+    </slot>
   </div>
 </template>
 
 <script>
-import { Swiper, SwiperItrm } from "common/swiper/index";
+import GoodsItem from "./GoodsItem";
 export default {
   data() {
     //这里存放数据
     return {};
   },
-  components: {
-    Swiper,
-    SwiperItrm,
+  props: {
+    goodsList: {
+      type: Array,
+      dafault() {
+        return [];
+      },
+    },
+    components: {
+      GoodsItem,
+    },
   },
   //监听属性 类似于data概念
   computed: {},
