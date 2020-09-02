@@ -7,8 +7,9 @@
     <HomeSwiper :banners="banners" />
     <RecommendView :recommend="recommend" />
     <FeaturView />
-    <TabControl class="tab-control" :titles="['流行', '新款', '精选']"></TabControl>
-    <GoodsList :goodsList="goodsList['pop'].list" />
+    <!--子传父 你只要使用的戚方法就相当于有了传过来的数据了@itemClick="ControlClick"-->
+    <TabControl class="tab-control" :titles="['流行', '新款', '精选']" @itemClick="ControlClick"></TabControl>
+    <GoodsList :goodsList="goodsList[currenttype].list" />
   </div>
 </template>
 
@@ -474,6 +475,7 @@ export default {
           ],
         },
       },
+      currenttype: "pop",
     };
   },
   components: {
@@ -495,6 +497,22 @@ export default {
     // this.getHomeProducts("sell");
   },
   methods: {
+    /*普通的方法 */
+    //index 是子传过来的
+    ControlClick(index) {
+      switch (index) {
+        case 0:
+          this.currenttype = "pop";
+          break;
+        case 1:
+          this.currenttype = "new";
+          break;
+        case 2:
+          this.currenttype = "sell";
+          break;
+      }
+    },
+
     /**
      * 网络请求相关方法
      */
@@ -509,7 +527,7 @@ export default {
     // getHomeProducts(type) {
     //   //获取到相对应的数据
     //   // 看页数的开始是0还是1
-    //   getHomeData(type, this.goodsList[type].page).then((res) => {
+    //   getHomeData(type, this.goodsList[type].page+1).then((res) => {
     //     const goodsLists = res.data.list;
     //     this.goodsList[type].list.push(...goodsLists);
     //     this.goodsList[type].page += 1;

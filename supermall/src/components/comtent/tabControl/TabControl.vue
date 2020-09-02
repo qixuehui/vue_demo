@@ -36,8 +36,8 @@ export default {
     itemClick: function (index) {
       // 1.改变currentIndex
       this.currentIndex = index;
-
-      // 2.发出事件
+      //子传父
+      // 2.发出事件 往外面发出事件 $emit 传出index用来进行判断是那个按钮被点击了
       this.$emit("itemClick", index);
     },
   },

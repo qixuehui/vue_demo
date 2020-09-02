@@ -46,9 +46,7 @@ export default {
     },
   },
   //生命周期 - 创建完成（可以访问当前this实例）
-  created() {
-    console.log(this.goods);
-  },
+  created() {},
   //生命周期 - 挂载完成（可以访问DOM元素）
   mounted() {},
   //beforeCreate() {}, //生命周期 - 创建之前
@@ -66,7 +64,6 @@ export default {
   padding-bottom: 40px;
   position: relative;
   width: 48%;
-  margin-right: 5px;
 }
 .goodsItem img {
   width: 100%;
