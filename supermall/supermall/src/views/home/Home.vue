@@ -4,14 +4,12 @@
     <Navbar class="nav-bar">
       <div slot="center">购物街</div>
     </Navbar>
-    <scroll class="content" ref="scroll" :probe-type="3" :pullUpLoad="true">
-      <HomeSwiper :banners="banners" />
-      <RecommendView :recommend="recommend" />
-      <FeaturView />
-      <!--子传父 你只要使用的戚方法就相当于有了传过来的数据了@itemClick="ControlClick"-->
-      <TabControl class="tab-control" :titles="['流行', '新款', '精选']" @itemClick="ControlClick"></TabControl>
-      <GoodsList :goodsList="goodsList[currenttype].list" />
-    </scroll>
+    <HomeSwiper :banners="banners" />
+    <RecommendView :recommend="recommend" />
+    <FeaturView />
+    <!--子传父 你只要使用的戚方法就相当于有了传过来的数据了@itemClick="ControlClick"-->
+    <TabControl class="tab-control" :titles="['流行', '新款', '精选']" @itemClick="ControlClick"></TabControl>
+    <GoodsList :goodsList="goodsList[currenttype].list" />
   </div>
 </template>
 
@@ -25,7 +23,6 @@ import FeaturView from "./childComps/FeaturView";
 import Navbar from "components/common/navbar/NavBar";
 import TabControl from "components/comtent/tabControl/TabControl";
 import GoodsList from "components/comtent/goods/GoodsList";
-import Scroll from "components/common/scroll/Scroll";
 
 // 方法导入
 import { getHomeMultidata, getHomeData } from "network/home";
@@ -489,7 +486,6 @@ export default {
     Navbar,
     TabControl,
     GoodsList,
-    Scroll,
   },
   //创建组件的时候，生命周期
   created() {
@@ -561,14 +557,5 @@ export default {
   /*设置到底一个值的时候position为fiexd */
   position: sticky;
   top: 44px;
-}
-.content {
-  overflow: hidden;
-
-  position: absolute;
-  top: 44px;
-  bottom: 49px;
-  left: 0;
-  right: 0;
 }
 </style>
