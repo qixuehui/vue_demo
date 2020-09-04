@@ -7,7 +7,7 @@
     <!--如果有接口使用其-->
     <SwiperItem v-for="(item, index) in banners" :key="index">
       <a :href="item.link">
-        <img :src="item.image" />
+        <img :src="item.image" @load="imgLoad" />
       </a>
     </SwiperItem>
   </Swiper>
@@ -18,7 +18,10 @@ import { Swiper, SwiperItem } from "components/common/swiper";
 export default {
   data() {
     //这里存放数据
-    return {};
+    return {
+      //监听传递img加载完 一次传递
+      isLoad: false,
+    };
   },
   props: {
     banners: {
@@ -42,6 +45,13 @@ export default {
     startTimer() {
       if (this.$refs.swiper) {
         this.$refs.swiper.startTimer();
+      }
+    },
+    //当监听完成后只传递一次imgLoad方法
+    imgLoad() {
+      if (!this.isLoad) {
+        this.$emit("imgLoad");
+        this.isLoad = true;
       }
     },
   },

@@ -1,6 +1,7 @@
 <!--  -->
 <template>
-  <div class="goodsItem" @click="goToDetail">
+  <!--图片加载 img.onload-->
+  <div class="goodsItem" @click="goToDetail" @load="loadimg">
     <!--如果有接口有传数据过来
     <img v-lazy="getImg" :key="getImg" alt />-->
     <img :src="goods.img" alt />
@@ -44,11 +45,23 @@ export default {
       //push对象 路径 传参
       this.$router.push({ path: "/datail", query: { iid } });
     },
+    loadimg() {
+      /*每次加载图片完成 往外提交 */
+      //$bus事件总线可以连接到其最父级的组件 但是其为空所以需要添加原型
+      this.$bus.$emit("itemImgetLoad");
+    },
   },
   //生命周期 - 创建完成（可以访问当前this实例）
   created() {},
   //生命周期 - 挂载完成（可以访问DOM元素）
-  mounted() {},
+  //第一次挂载完成可以执行
+  mounted() {
+    //希望能调用
+    console.log("----------"); //18
+    setTimeout(() => {
+      this.$bus.$emit("itemImgetLoad");
+    }, 20);
+  },
   //beforeCreate() {}, //生命周期 - 创建之前
   //beforeMount() {}, //生命周期 - 挂载之前
   //beforeUpdate() {}, //生命周期 - 更新之前

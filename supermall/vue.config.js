@@ -10,6 +10,7 @@ module.exports = {
                 'components': '@/components',
                 'content': 'components/content',
                 'common': 'components/common',
+                'commons': '@/commons',
                 'network': '@/network',
                 'router': '@/router',
                 'store': '@/store',

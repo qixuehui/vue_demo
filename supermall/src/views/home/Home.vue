@@ -4,15 +4,29 @@
     <Navbar class="nav-bar">
       <div slot="center">购物街</div>
     </Navbar>
-    <scroll class="content" ref="scroll" :probe-type="3" :pullUpLoad="true">
-      <HomeSwiper :banners="banners" />
+    <scroll
+      class="content"
+      ref="scroll"
+      :probe-type="3"
+      :pullUpLoad="true"
+      @scroll="contentScroll"
+      @pullingUp="loadmsg"
+    >
+      <HomeSwiper :banners="banners" @imgLoad="imgLoad" />
       <RecommendView :recommend="recommend" />
       <FeaturView />
       <!--子传父 你只要使用的戚方法就相当于有了传过来的数据了@itemClick="ControlClick"-->
-      <TabControl class="tab-control" :titles="['流行', '新款', '精选']" @itemClick="ControlClick"></TabControl>
+      <TabControl
+        class="tab-control"
+        :titles="['流行', '新款', '精选']"
+        @itemClick="ControlClick"
+        ref="tabcontrolclick"
+        :class="{fixed:isShowBackTop}"
+      ></TabControl>
       <GoodsList :goodsList="goodsList[currenttype].list" />
     </scroll>
-    <BackTop></BackTop>
+    <!--native组件监听方法-->
+    <BackTop @click.native="backClick" v-show="isShowBackTop"></BackTop>
   </div>
 </template>
 
@@ -31,8 +45,10 @@ import BackTop from "components/comtent/backTop/BackTop";
 
 // 方法导入
 import { getHomeMultidata, getHomeData } from "network/home";
+import { debounce } from "../../commons/utils";
 export default {
   name: "Home",
+  //自身数据
   data() {
     return {
       //轮播图
@@ -481,8 +497,13 @@ export default {
         },
       },
       currenttype: "pop",
+      isShowBackTop: false,
+      tabOffsetTop: 0,
+      isShowBackTop: false,
+      saveY: 0,
     };
   },
+  //挂载组件
   components: {
     HomeSwiper,
     RecommendView,
@@ -494,7 +515,22 @@ export default {
     Scroll,
     BackTop,
   },
-  //创建组件的时候，生命周期
+  //摧毁
+  destroyed() {
+    console.log("home destroyed");
+  },
+  //活跃
+  activated() {
+    //滚动到你之前定位的地址
+    this.$refs.scroll.scroll.scrollTo(0, this.saveY, 0);
+    //跳转的时候进行刷新一下防止出现问题
+    // this.$refs.Scroll.refresh();
+  },
+  //不活跃 之前这个是不行的 因为需要router.push
+  deactivated() {
+    this.saveY = this.$refs.scroll.scroll.y;
+  },
+  //创建组件的时候，生命周期 用来请求网络数据
   created() {
     //获取请求多个数据
     // this.getMultiData();
@@ -503,9 +539,29 @@ export default {
     // this.getHomeProducts("new");
     // this.getHomeProducts("sell");
   },
+  //用来获取DOM渲染完后赋值,调用方法 直接调用 dom是渲染完了但是图片没有加载完哦 DOM渲染不包括加载
+  mounted() {
+    //赋值 taboffsettop
+    //组件是没有offsettop的所以我们需要拿到它的元素而非组件 $el来拿组件的元素
+    //如果是本地资源可以直接拿到数据,如果是外部资源需要进行加载,所以要监听图片的完成在获取距离
+    // this.tabOffsetTop = this.$refs.tabcontrolclick.$el.offsetTop;
+    // console.log(this.$refs.tabcontrolclick.$el);
+    //因为可能拿不到this.$refs.scroll
+    //目的是为了加载完成在进行计算滚动距离，达到可以自由滚动
+    //一次刷新
+    let refresh = debounce(this.$refs.scroll.refresh, 500);
+    this.$bus.$on("itemImgetLoad", () => {
+      // console.log(this.$refs.scroll);
+      // console.log("xxxxxxxxx");
+      // this.$refs.scroll.refresh();
+      refresh();
+    });
+  },
+  //普通的方法 它人调用
   methods: {
     /*普通的方法 */
     //index 是子传过来的
+    //获取 Controltab的类型
     ControlClick(index) {
       switch (index) {
         case 0:
@@ -519,27 +575,53 @@ export default {
           break;
       }
     },
-
+    //监听滚动-滚到0,0的位置 点击backtop
+    backClick() {
+      this.$refs.scroll.scrollTo(0, 0);
+    },
+    //滚动事件 展示 不显示BackTop
+    contentScroll(position) {
+      //显示不显示
+      this.isShowBackTop = -position.y > 1000;
+      //吸顶不吸顶 fixed
+      //+ 300是因为我的数据不是获取的是本地的导致发生问题 在刷新会没有轮播图的大小
+      this.isShowBackTop = -position.y > this.tabOffsetTop + 300;
+    },
+    //上拉加载更多 获取下一页数据
+    loadmsg() {
+      console.log("上拉加载更多");
+      this.getHomeProducts(this.currenttype);
+    },
+    //吸顶方法
+    //轮播图加载成功
+    imgLoad() {
+      //距离有问题 获取后的值为没有轮播图的大小
+      console.log("加载成功");
+      this.tabOffsetTop = this.$refs.tabcontrolclick.$el.offsetTop;
+      console.log(this.$refs.tabcontrolclick.$el);
+      console.log(this.tabOffsetTop);
+    },
     /**
      * 网络请求相关方法
      */
-    // getMultiData() {
-    //   getHomeMultidata().then((res) => {
-    //     // console.log(res);
-    //     // 轮播图数据;
-    //     this.banners = res.data.banner.list;
-    //     this.recommend = res.data.recommend.list;
-    //   });
-    // },
-    // getHomeProducts(type) {
-    //   //获取到相对应的数据
-    //   // 看页数的开始是0还是1
-    //   getHomeData(type, this.goodsList[type].page+1).then((res) => {
-    //     const goodsLists = res.data.list;
-    //     this.goodsList[type].list.push(...goodsLists);
-    //     this.goodsList[type].page += 1;
-    //   });
-    // },
+    getMultiData() {
+      getHomeMultidata().then((res) => {
+        // console.log(res);
+        // 轮播图数据;
+        this.banners = res.data.banner.list;
+        this.recommend = res.data.recommend.list;
+      });
+    },
+    getHomeProducts(type) {
+      //获取到相对应的数据
+      // 看页数的开始是0还是1
+      getHomeData(type, this.goodsList[type].page).then((res) => {
+        const goodsLists = res.data.list;
+        this.goodsList[type].list.push(...goodsLists);
+        this.goodsList[type].page += 1;
+      });
+      this.$refs.scroll.finishPullUp();
+    },
   },
 };
 </script>
@@ -573,5 +655,11 @@ export default {
   bottom: 49px;
   left: 0;
   right: 0;
+}
+.fixed {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 44px;
 }
 </style>

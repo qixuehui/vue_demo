@@ -1,7 +1,7 @@
 <template>
   <div id="profile">
     <Navbar class="nav-bar">
-      <div slot="center">蘑菇街</div>
+      <div slot="center">个人中心</div>
     </Navbar>
   </div>
 </template>
