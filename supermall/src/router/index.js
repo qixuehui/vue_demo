@@ -11,6 +11,8 @@ const Profile = () =>
     import ('views/profile/Profile')
 const Shop = () =>
     import ('views/shop/Shop')
+const Detail = () =>
+    import ('views/detail/detail')
 
 const routes = [{
         path: '/',
@@ -32,6 +34,10 @@ const routes = [{
     {
         path: '/shop',
         component: Shop
+    },
+    {
+        path: '/detail',
+        component: Detail
     }
 ]
 

@@ -38,6 +38,7 @@ export default {
   watch: {},
   //方法集合
   methods: {
+    //详情的跳转
     goToDetail() {
       // 1.获取iid
       let iid = this.goods.iid;

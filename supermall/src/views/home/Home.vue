@@ -110,42 +110,46 @@ export default {
                 "https://s5.mogucdn.com/mlcdn/c45406/190906_59i021a4864jlg0731c462f516l3e_640x960.jpg",
               title: "童装男童春秋套装2020新款...",
               price: "79.8",
-              cfav: "✨ 84",
+              cfav: "84",
+              iid: "1",
             },
             {
               img:
                 "https://s5.mogucdn.com/mlcdn/c45406/181019_055b79i095fg86ia2d0l51l3a0c5g_640x960.jpg",
               title: "020夏季英伦男鞋子韩版潮流...",
               price: "159.9",
-              cfav: "✨ 862",
+              cfav: "862",
+              iid: "2",
             },
             {
               img:
                 "https://s5.mogucdn.com/mlcdn/c45406/200516_2ca4ah05ldj0f0f2c43dlehld18c6_750x1000.jpg",
               title: "第2件半价】完美日记哑光唇釉...",
               price: "39.9",
-              cfav: "✨ 14653",
+              cfav: "14653",
+              iid: "3",
             },
             {
               img:
                 "https://s5.mogucdn.com/mlcdn/c45406/190525_17e4877h3i4e1d8c9fb869g1kllle_640x960.jpg",
               title: "买1送牙刷抖音同款牙粉美牙膏口...",
               price: "39.9",
-              cfav: "✨ 7239",
+              cfav: "7239",
+              iid: "4",
             },
             {
               img:
                 "https://s5.mogucdn.com/mlcdn/c45406/200516_2ca4ah05ldj0f0f2c43dlehld18c6_750x1000.jpg",
               title: "第2件半价】完美日记哑光唇釉...",
               price: "39.9",
-              cfav: "✨ 14653",
+              cfav: "14653",
             },
             {
               img:
                 "https://s5.mogucdn.com/mlcdn/c45406/190525_17e4877h3i4e1d8c9fb869g1kllle_640x960.jpg",
               title: "买1送牙刷抖音同款牙粉美牙膏口...",
               price: "39.9",
-              cfav: "✨ 7239",
+              cfav: "7239",
             },
             {
               img:
@@ -241,28 +245,32 @@ export default {
                 "https://s5.mogucdn.com/mlcdn/c45406/200516_2ca4ah05ldj0f0f2c43dlehld18c6_750x1000.jpg",
               title: "第2件半价】完美日记哑光唇釉...",
               price: "39.9",
-              cfav: "✨ 14653",
+              cfav: "14653",
+              iid: "1",
             },
             {
               img:
                 "https://s5.mogucdn.com/mlcdn/c45406/190525_17e4877h3i4e1d8c9fb869g1kllle_640x960.jpg",
               title: "买1送牙刷抖音同款牙粉美牙膏口...",
               price: "39.9",
-              cfav: "✨ 7239",
+              cfav: "7239",
+              iid: "2",
             },
             {
               img:
                 "https://s5.mogucdn.com/mlcdn/c45406/190724_25hha590h023601484649g8fd654h_640x960.jpg",
               title: "秋季新款韩版系带蝴蝶结收腰连...",
               price: "59",
-              cfav: "✨ 2951",
+              cfav: "2951",
+              iid: "3",
             },
             {
               img:
                 "https://s5.mogucdn.com/mlcdn/c45406/190507_4c8876ei20ai58d713f421j1k75gg_800x1200.jpg",
               title: "版甜美小清新宽松显瘦雪纺衫防...",
               price: "49",
-              cfav: "✨ 19060",
+              cfav: "19060",
+              iid: "4",
             },
             {
               img:
@@ -372,28 +380,32 @@ export default {
                 "https://s5.mogucdn.com/mlcdn/c45406/180122_34447515be969k225dc8dbe217fe5_640x960.jpg",
               title: "50片】国妆特证祛斑婴儿蚕丝...",
               price: "79",
-              cfav: "✨ 629",
+              cfav: "629",
+              iid: "1",
             },
             {
               img:
                 "https://s5.mogucdn.com/p2/161020/105269942_1k0fhjh784ia049gjk0ggd5a417li_640x960.png",
               title: "25纯银耳钉韩版时尚百搭日韩...",
               price: "19.17",
-              cfav: "✨ 5360",
+              cfav: "5360",
+              iid: "2",
             },
             {
               img:
                 "https://s5.mogucdn.com/mlcdn/c45406/190525_17e4877h3i4e1d8c9fb869g1kllle_640x960.jpg",
               title: "买1送牙刷抖音同款牙粉美牙膏口...",
               price: "39.9",
-              cfav: "✨ 7239",
+              cfav: "7239",
+              iid: "3",
             },
             {
               img:
                 "https://s5.mogucdn.com/mlcdn/c45406/190724_25hha590h023601484649g8fd654h_640x960.jpg",
               title: "秋季新款韩版系带蝴蝶结收腰连...",
               price: "59",
-              cfav: "✨ 2951",
+              cfav: "2951",
+              iid: "4",
             },
             {
               img:
