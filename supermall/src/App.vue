@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <!-- <keep-alive> 保持状态 activated deactivated 如果有路由跳转这个方法就不行-->
-    <keep-alive>
+    <!--exclude排除一些-->
+    <keep-alive exclude="Detail">
       <router-view />
     </keep-alive>
     <MainTabBar></MainTabBar>

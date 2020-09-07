@@ -1,0 +1,91 @@
+<!-- 商家 -->
+<template>
+  <div class="detail-shop-info">
+    <!--上部-->
+    <div class="shop-top">
+      <img :src="shop.logo" alt />
+      <span class="title">{{shop.name}}</span>
+    </div>
+    <!--中部-->
+    <div class="shop-middle">
+      <div class="shop-middle-item shop-middle-left">
+        <!--销售-->
+        <div class="info-sells">
+          <!--sellCountFilter 销量过滤器-->
+          <div class="sells-count">{{shop.sells | sellCountFilter}}+</div>
+        </div>
+        <div class="sells-text">总销量</div>
+        <!---->
+        <div class="info-goods">
+          <div class="goods-count">{{shop.goodsCount |sellCountFilter}}</div>
+          <div class="goods-text">全部宝贝</div>
+        </div>
+        <!--xxxx-->
+        <div class="shop-middle-item shop-middle-right"></div>
+      </div>
+    </div>
+    <!--评分-->
+    <div class="shop-bottom">
+      <div class="enter-shop">进店逛逛 ></div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    //这里存放数据
+    return {};
+  },
+  props: {
+    shop: { type: Object },
+  },
+  filters: {
+    sellCountFilter: function (value) {
+      if (value < 10000) return value;
+      return (value / 10000).toFixed(1) + "万";
+    },
+  },
+  //监听属性 类似于data概念
+  computed: {},
+  //监控data中的数据变化
+  watch: {},
+  //方法集合
+  methods: {},
+  //生命周期 - 创建完成（可以访问当前this实例）
+  created() {},
+  //生命周期 - 挂载完成（可以访问DOM元素）
+  mounted() {},
+  //beforeCreate() {}, //生命周期 - 创建之前
+  //beforeMount() {}, //生命周期 - 挂载之前
+  //beforeUpdate() {}, //生命周期 - 更新之前
+  //updated() {}, //生命周期 - 更新之后
+  //beforeDestroy() {}, //生命周期 - 销毁之前
+  //destroyed() {}, //生命周期 - 销毁完成
+  //activated() {}, //如果页面有keep-alive缓存功能，这个函数会触发
+};
+</script>
+<style scoped>
+/* @import url(); 引入公共css类 */
+.detail-shop-info {
+  position: relative;
+}
+.shop-top img {
+  border-radius: 50%;
+  margin-top: 5px;
+  margin-left: 5px;
+  height: 44px;
+  width: 44px;
+  order: 1px solid rgba(0, 0, 0, 0.1);
+}
+.shop-top .title {
+  position: relative;
+  left: 10px;
+  top: -30px;
+}
+.shop-bottom .enter-shop {
+  position: absolute;
+  right: 20px;
+  top: 5px;
+}
+</style>

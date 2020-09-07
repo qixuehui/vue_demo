@@ -103,39 +103,43 @@ export default {
       ],
       goodsList: {
         new: {
+          //1
+          //家居
           page: 0,
           list: [
             {
               img:
-                "https://s5.mogucdn.com/mlcdn/c45406/190906_59i021a4864jlg0731c462f516l3e_640x960.jpg",
-              title: "童装男童春秋套装2020新款...",
-              price: "79.8",
+                "https://s5.mogucdn.com/mlcdn/776a41/200901_6kd75542ej9j4h32fhgjki0khi6g0_750x1125.jpg_480x640.v1cAC.40.webp",
+              title:
+                "水梦莱 印花水洗仿真丝四件套北欧春夏裸睡网红款冰丝床上床单被套",
+              price: "79",
               cfav: "84",
-              iid: "1",
+              iid: "11",
             },
             {
               img:
-                "https://s5.mogucdn.com/mlcdn/c45406/181019_055b79i095fg86ia2d0l51l3a0c5g_640x960.jpg",
-              title: "020夏季英伦男鞋子韩版潮流...",
-              price: "159.9",
+                "https://s5.mogucdn.com/mlcdn/c45406/190717_519k5hfhc5dfd6l1e3b241ggj3f7a_640x960.jpg_480x640.v1cAC.40.webp",
+              title: "多肉花盆植物拼盘粗陶绿植物简约陶瓷残次花盆陶瓷水泥花盆",
+              price: "10.3",
               cfav: "862",
-              iid: "2",
+              iid: "12",
             },
             {
               img:
-                "https://s5.mogucdn.com/mlcdn/c45406/200516_2ca4ah05ldj0f0f2c43dlehld18c6_750x1000.jpg",
-              title: "第2件半价】完美日记哑光唇釉...",
+                "https://s5.mogucdn.com/mlcdn/c45406/200520_351iclablb2543k0g65e3aadk7g21_640x960.jpg_480x640.v1cAC.40.webp",
+              title:
+                "水洗棉夏被空调被全棉纯色单双人夏季凉被韩式简约学生宿舍薄被子",
               price: "39.9",
               cfav: "14653",
-              iid: "3",
+              iid: "13",
             },
             {
               img:
-                "https://s5.mogucdn.com/mlcdn/c45406/190525_17e4877h3i4e1d8c9fb869g1kllle_640x960.jpg",
-              title: "买1送牙刷抖音同款牙粉美牙膏口...",
-              price: "39.9",
-              cfav: "7239",
-              iid: "4",
+                "https://s5.mogucdn.com/mlcdn/776a41/200901_6kd75542ej9j4h32fhgjki0khi6g0_750x1125.jpg_480x640.v1cAC.40.webp",
+              title:
+                "水梦莱 印花水洗仿真丝四件套北欧春夏裸睡网红款冰丝床上床单被套",
+              price: "79",
+              cfav: "84",
             },
             {
               img:
@@ -238,39 +242,40 @@ export default {
           ],
         },
         pop: {
+          //p2
+          //鞋子
           page: 0,
           list: [
             {
               img:
-                "https://s5.mogucdn.com/mlcdn/c45406/200516_2ca4ah05ldj0f0f2c43dlehld18c6_750x1000.jpg",
-              title: "第2件半价】完美日记哑光唇釉...",
-              price: "39.9",
+                "https://s5.mogucdn.com/mlcdn/c45406/200225_24f945gheb9338jh7dk3b33958ck0_640x960.jpg_440x587.v1cAC.40.webp",
+              title: "秋季网面ins厚底老爹鞋女2020新款百搭学生运动鞋透气白鞋",
+              price: "79.9",
               cfav: "14653",
-              iid: "1",
+              iid: "21",
             },
             {
               img:
-                "https://s5.mogucdn.com/mlcdn/c45406/190525_17e4877h3i4e1d8c9fb869g1kllle_640x960.jpg",
-              title: "买1送牙刷抖音同款牙粉美牙膏口...",
-              price: "39.9",
+                "https://s5.mogucdn.com/mlcdn/c45406/200820_7f1bk3787kfg7ad28alk93cki4j8d_640x960.jpg_440x587.v1cAC.40.webp",
+              title: "小白鞋女2020年秋季新款厚底高帮女鞋子百搭网红街拍休闲板鞋",
+              price: "75",
               cfav: "7239",
-              iid: "2",
+              iid: "22",
             },
             {
               img:
-                "https://s5.mogucdn.com/mlcdn/c45406/190724_25hha590h023601484649g8fd654h_640x960.jpg",
-              title: "秋季新款韩版系带蝴蝶结收腰连...",
+                "https://s5.mogucdn.com/mlcdn/776a41/200904_065ce0kb2i5h01015l9g6jh0g13l2_750x1125.jpg_440x587.v1cAC.40.webp",
+              title: "2020春季新款方头单鞋女鞋粗跟中跟英伦工作小皮鞋百搭乐福鞋",
               price: "59",
               cfav: "2951",
-              iid: "3",
+              iid: "23",
             },
             {
               img:
-                "https://s5.mogucdn.com/mlcdn/c45406/190507_4c8876ei20ai58d713f421j1k75gg_800x1200.jpg",
-              title: "版甜美小清新宽松显瘦雪纺衫防...",
-              price: "49",
-              cfav: "19060",
-              iid: "4",
+                "https://s5.mogucdn.com/mlcdn/c45406/200225_24f945gheb9338jh7dk3b33958ck0_640x960.jpg_440x587.v1cAC.40.webp",
+              title: "秋季网面ins厚底老爹鞋女2020新款百搭学生运动鞋透气白鞋",
+              price: "79.9",
+              cfav: "14653",
             },
             {
               img:
@@ -377,35 +382,36 @@ export default {
           list: [
             {
               img:
-                "https://s5.mogucdn.com/mlcdn/c45406/180122_34447515be969k225dc8dbe217fe5_640x960.jpg",
-              title: "50片】国妆特证祛斑婴儿蚕丝...",
-              price: "79",
-              cfav: "629",
-              iid: "1",
-            },
-            {
-              img:
-                "https://s5.mogucdn.com/p2/161020/105269942_1k0fhjh784ia049gjk0ggd5a417li_640x960.png",
-              title: "25纯银耳钉韩版时尚百搭日韩...",
-              price: "19.17",
-              cfav: "5360",
-              iid: "2",
-            },
-            {
-              img:
-                "https://s5.mogucdn.com/mlcdn/c45406/190525_17e4877h3i4e1d8c9fb869g1kllle_640x960.jpg",
-              title: "买1送牙刷抖音同款牙粉美牙膏口...",
+                "https://s5.mogucdn.com/mlcdn/c45406/200409_2ljfkb21189fej7jgc2lb27i08h93_3999x5999.jpg_440x587.v1cAC.40.webp",
+              title: "T恤+牛仔裤两件套女装休闲2020年夏季显瘦小个子时尚套装女",
               price: "39.9",
-              cfav: "7239",
-              iid: "3",
+              cfav: "629",
+              iid: "31",
             },
             {
               img:
-                "https://s5.mogucdn.com/mlcdn/c45406/190724_25hha590h023601484649g8fd654h_640x960.jpg",
-              title: "秋季新款韩版系带蝴蝶结收腰连...",
-              price: "59",
-              cfav: "2951",
-              iid: "4",
+                "https://s5.mogucdn.com/mlcdn/c45406/200830_7gcdf2c4fhebd9520abfdi7iki2h9_900x1200.jpg_440x587.v1cAC.40.webp",
+              title:
+                "网红街拍炸街两件套女针织开衫上衣休闲哈伦裤赫本风洋气减龄套装",
+              price: "69.9",
+              cfav: "5360",
+              iid: "32",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/200416_8ad0gb6ihfkfb3h1i3hh8eke3kg95_3800x5700.jpg_440x587.v1cAC.40.webp",
+              title: "时尚套装女新款夏装遮肚子套装胖妹妹洋气减龄显瘦两件套",
+              price: "69",
+              cfav: "7239",
+              iid: "33",
+            },
+            {
+              img:
+                "https://s5.mogucdn.com/mlcdn/c45406/200416_8ad0gb6ihfkfb3h1i3hh8eke3kg95_3800x5700.jpg_440x587.v1cAC.40.webp",
+              title: "时尚套装女新款夏装遮肚子套装胖妹妹洋气减龄显瘦两件套",
+              price: "69",
+              cfav: "7239",
+              iid: "",
             },
             {
               img:

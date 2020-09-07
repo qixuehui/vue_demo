@@ -44,7 +44,7 @@ export default {
       let iid = this.goods.iid;
       //跳转到详情页面
       //push对象 路径 传参
-      this.$router.push({ path: "/datail", query: { iid } });
+      this.$router.push({ path: "/detail", query: { iid } });
     },
     loadimg() {
       /*每次加载图片完成 往外提交 */
