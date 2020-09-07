@@ -32,7 +32,8 @@ import {
   Shop,
 } from "network/detail";
 export default {
-  name: "detail",
+  // 组件排除时使用
+  name: "Detail",
   //本身的数据
   data() {
     //这里存放数据
@@ -259,6 +260,31 @@ export default {
         newPrice: "79.90",
         oldPrice: "398.00",
         discount: "20%",
+        // desc = ,
+        columns: ["销量1149", "收藏33人"],
+        services: [
+          {
+            name: "72小时发货",
+            img:
+              "https://s11.mogucdn.com/mlcdn/c45406/180417_25kbfg1c3hdbd120394ji4b11bk2k_36x36.png",
+          },
+          {
+            name: "7天无理由退货",
+            img:
+              "https://s11.mogucdn.com/mlcdn/c45406/180417_25kbfg1c3hdbd120394ji4b11bk2k_36x36.png",
+          },
+          {
+            name: "延误必赔",
+            img:
+              "https://s11.mogucdn.com/mlcdn/c45406/180417_25kbfg1c3hdbd120394ji4b11bk2k_36x36.png",
+          },
+          {
+            name: "退货补运费",
+            img:
+              "https://s11.mogucdn.com/mlcdn/c45406/180417_25kbfg1c3hdbd120394ji4b11bk2k_36x36.png",
+          },
+        ],
+        // nowPrice = ,
       },
       //商家
       shop: {
@@ -267,6 +293,12 @@ export default {
         name: "MM情侣鞋",
         sells: "2312000",
         goodsCount: "135000",
+        // fans : ,
+        score: [
+          { name: "描述相符", isBetter: 0, score: 4.6 },
+          { name: "价格合理", isBetter: 1, score: 5 },
+          { name: "质量满意", isBetter: 0, score: 4.7 },
+        ],
       },
       //detail信息
       detailInfo: {},
@@ -335,7 +367,7 @@ export default {
           //赋值个别数据
           // 2.2.获取顶部信息
           this.topImages = data.itemInfo.topImages;
-          // 2.3.获取商品信息
+          // 2.3.获取商品信息 传三个对象
           this.goods = new Goods(
             data.itemInfo,
             data.columns,
@@ -380,7 +412,9 @@ export default {
     getRecommend();
   },
   //生命周期 - 挂载完成（可以访问DOM元素）创建组件完成后需要执行的函数
-  mounted() {},
+  mounted() {
+    this.$refs.scroll.refresh();
+  },
   //beforeCreate() {}, //生命周期 - 创建之前
   //beforeMount() {}, //生命周期 - 挂载之前
   //beforeUpdate() {}, //生命周期 - 更新之前

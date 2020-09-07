@@ -62,7 +62,7 @@ export default {
   left: 0px;
   /*才不会团再一起 只要right和left在一起才会想两边扩展 */
   right: 0;
-  bottom: 120px;
+  bottom: 0px;
   height: 58px;
   background-color: #fff;
   z-index: 10;

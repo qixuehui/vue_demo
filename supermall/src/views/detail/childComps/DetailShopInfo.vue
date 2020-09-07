@@ -15,13 +15,21 @@
           <div class="sells-count">{{shop.sells | sellCountFilter}}+</div>
         </div>
         <div class="sells-text">总销量</div>
-        <!---->
+        <!--商品-->
         <div class="info-goods">
           <div class="goods-count">{{shop.goodsCount |sellCountFilter}}</div>
           <div class="goods-text">全部宝贝</div>
         </div>
-        <!--xxxx-->
-        <div class="shop-middle-item shop-middle-right"></div>
+      </div>
+      <!--商家情况-->
+      <div class="shop-middle-item shop-middle-right">
+        <table>
+          <tr v-for="(item, index) in shop.score" :key="index">
+            <td>{{item.name}}</td>
+            <td>{{item.score}}</td>
+            <td>{{item.isBetter ? '高':'低'}}</td>
+          </tr>
+        </table>
       </div>
     </div>
     <!--评分-->
@@ -67,25 +75,4 @@ export default {
 </script>
 <style scoped>
 /* @import url(); 引入公共css类 */
-.detail-shop-info {
-  position: relative;
-}
-.shop-top img {
-  border-radius: 50%;
-  margin-top: 5px;
-  margin-left: 5px;
-  height: 44px;
-  width: 44px;
-  order: 1px solid rgba(0, 0, 0, 0.1);
-}
-.shop-top .title {
-  position: relative;
-  left: 10px;
-  top: -30px;
-}
-.shop-bottom .enter-shop {
-  position: absolute;
-  right: 20px;
-  top: 5px;
-}
 </style>

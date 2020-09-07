@@ -1,6 +1,6 @@
 <!--  -->
 <template>
-  <!-- ? -->
+  <!-- 轮播图 -->
   <Swiper ref="swiper" v-if="banners.length">
     <!--SwiperItem 或者 swiper-item-->
     <!--:src 没有冒号就是一个字符串了 这个有接口的时候使用的方法-->

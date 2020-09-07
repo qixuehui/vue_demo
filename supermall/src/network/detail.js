@@ -19,8 +19,11 @@ export function getRecommend() {
 }
 
 //物品
+//因为需要的数据在三个对象中,直接数据展示代码会很难看所以进行类的总和
 export class Goods {
     //构造函数
+    //从对象itemInfo, columns, services中获取我们需要的数据
+    //到时候将数据上传到子类就可以直接使用
     constructor(itemInfo, columns, services) {
         this.title = itemInfo.title;
         this.desc = itemInfo.desc;
