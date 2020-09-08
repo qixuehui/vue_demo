@@ -8,6 +8,7 @@
       <DetailGoodsInfo :goods="goods"></DetailGoodsInfo>
       <DetailCommentInfo :commentInfo="commentInfo"></DetailCommentInfo>
       <DetailShopInfo :shop="shop"></DetailShopInfo>
+      <DetailParamInfo :paramInfo="paramInfo"></DetailParamInfo>
       <DetailDetailInfo :detailInfo="detailInfo" @imageLoad="imageLoad"></DetailDetailInfo>
     </Scroll>
     <DetailBottomBar></DetailBottomBar>
@@ -25,6 +26,7 @@ import DetailCommentInfo from "./childComps/DetailCommentInfo";
 import DetailShopInfo from "./childComps/DetailShopInfo";
 import DetailBottomBar from "./childComps/DetailBottomBar";
 import DetailDetailInfo from "./childComps/DetailDetailInfo";
+import DetailParamInfo from "./childComps/DetailParamInfo";
 //方法请求
 import {
   getDetail,
@@ -320,12 +322,46 @@ export default {
               "https://s5.mogucdn.com/mlcdn/c45406/200225_2920bjc518ejcc8f1hkielk0jdgaj_800x800.jpg_750x999.jpg",
               "https://s11.mogucdn.com/mlcdn/c45406/200225_613jhe238e7dd02aaf7hh1bh5gi2j_800x800.jpg_750x999.jpg",
               "https://s5.mogucdn.com/mlcdn/c45406/200225_052l6d3125g88e696e5bja8i8609g_800x800.jpg_750x999.jpg",
+              "https://s5.mogucdn.com/p2/170317/77101615_6f3ak83kkl00329ged9249aa93ifb_1125x285.jpg_750x999.jpg",
             ],
           },
         ],
       },
       //参数信息
-      paramInfo: {},
+      paramInfo: {
+        infos: [
+          { key: "图案", value: "纯色" },
+          { key: "内里材质", value: "布" },
+          { key: "鞋头形状", value: "圆头" },
+          { key: "鞋面特殊工艺效果", value: "拼接,网状" },
+          { key: "颜色", value: "粉红色,黄色,红色" },
+          { key: "帮高", value: "低帮" },
+          {
+            key: "尺码",
+            value:
+              "40偏小半码,37偏小半码,39偏小半码,35偏小半码,38偏小半码,36偏小半码",
+          },
+          {
+            key: "鞋底材质",
+            value: "橡胶底",
+          },
+          {
+            key: "季节",
+            value: "秋季",
+          },
+          {
+            key: "流行元素",
+            value: "绑带（系带）,韩系,厚底内增高",
+          },
+        ],
+        image: [],
+        sizes: [
+          { tr: ["尺码", "M", "L", "XL", "XXL"] },
+          { tr: ["衣长", "61.5", "63  ", "64.5", "66 "] },
+          { tr: ["胸围", "98", "104 ", "110", "116"] },
+          { tr: ["袖长", "63", "66", "68.5", "70.5"] },
+        ],
+      },
       //评论信息
       commentInfo: {
         evaluation: "259",
@@ -360,6 +396,7 @@ export default {
     DetailShopInfo,
     DetailBottomBar,
     DetailDetailInfo,
+    DetailParamInfo,
   },
   //监听属性 类似于data概念 计算数据
   computed: {},
