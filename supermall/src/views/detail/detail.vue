@@ -2,12 +2,13 @@
 <template>
   <div id="detail">
     <!--:current-index当前穿来的index 赋值于currentIndex-->
-    <DetailNavBar @itemClick="itemClick" :current-index="currentIndex"></DetailNavBar>
+    <DetailNavBar @itemClick="itemClick" :current-index="currentIndex" class="Nar-bar"></DetailNavBar>
     <Scroll class="content" ref="scroll" :probe-type="3">
       <DetailSwiper :images="topImages"></DetailSwiper>
       <DetailGoodsInfo :goods="goods"></DetailGoodsInfo>
       <DetailCommentInfo :commentInfo="commentInfo"></DetailCommentInfo>
       <DetailShopInfo :shop="shop"></DetailShopInfo>
+      <DetailDetailInfo :detailInfo="detailInfo" @imageLoad="imageLoad"></DetailDetailInfo>
     </Scroll>
     <DetailBottomBar></DetailBottomBar>
   </div>
@@ -23,6 +24,7 @@ import DetailGoodsInfo from "./childComps/DetailGoodsInfo";
 import DetailCommentInfo from "./childComps/DetailCommentInfo";
 import DetailShopInfo from "./childComps/DetailShopInfo";
 import DetailBottomBar from "./childComps/DetailBottomBar";
+import DetailDetailInfo from "./childComps/DetailDetailInfo";
 //方法请求
 import {
   getDetail,
@@ -301,10 +303,30 @@ export default {
         ],
       },
       //detail信息
-      detailInfo: {},
-      //
+      detailInfo: {
+        desc:
+          "偏小半码 底厚5厘米 软底软面 超舒适百搭 透气 质量保证 免费送运费险  3个颜色  6个码号随便拍 你开心就好！！！",
+        detailImage: [
+          {
+            key: "试穿效果",
+            list: [
+              "https://s5.mogucdn.com/mlcdn/c45406/200225_2i4j76alji0l117a1aa27f66gha26_800x800.jpg_750x999.jpg",
+              "https://s5.mogucdn.com/mlcdn/c45406/200225_42blckg69icej21hf7jli8i5jai9h_800x800.jpg_750x999.jpg",
+              "https://s11.mogucdn.com/mlcdn/c45406/200225_2k6h8afi50eh06j87l8d6df2d54de_800x800.jpg_750x999.jpg",
+              "https://s5.mogucdn.com/mlcdn/c45406/200225_0c0hhd6021bh9hbjl3b7214ckc594_800x800.jpg_750x999.jpg",
+              "https://s11.mogucdn.com/mlcdn/c45406/200225_42h525kf9ia94hdg291b2l8alk6lg_800x800.jpg_750x999.jpg",
+              "https://s11.mogucdn.com/mlcdn/c45406/200225_0g2ej27f10jk96j634ef58963hdh8_800x800.jpg_750x999.jpg",
+              "https://s11.mogucdn.com/mlcdn/c45406/200225_5ceb6b43h80ddkcg8g114hgac631k_800x800.jpg_750x999.jpg",
+              "https://s5.mogucdn.com/mlcdn/c45406/200225_2920bjc518ejcc8f1hkielk0jdgaj_800x800.jpg_750x999.jpg",
+              "https://s11.mogucdn.com/mlcdn/c45406/200225_613jhe238e7dd02aaf7hh1bh5gi2j_800x800.jpg_750x999.jpg",
+              "https://s5.mogucdn.com/mlcdn/c45406/200225_052l6d3125g88e696e5bja8i8609g_800x800.jpg_750x999.jpg",
+            ],
+          },
+        ],
+      },
+      //参数信息
       paramInfo: {},
-      //
+      //评论信息
       commentInfo: {
         evaluation: "259",
         sales: "1133",
@@ -319,7 +341,7 @@ export default {
 
         created: "2020年06月09日",
       },
-      //
+      //推荐信息
       recommendList: [],
       //
       themeTops: [],
@@ -337,6 +359,7 @@ export default {
     DetailCommentInfo,
     DetailShopInfo,
     DetailBottomBar,
+    DetailDetailInfo,
   },
   //监听属性 类似于data概念 计算数据
   computed: {},
@@ -347,8 +370,12 @@ export default {
     //普通请求
     //传过来的index为
     itemClick(index) {
-      cons;
+      this.currentIndex = index;
       /* this.currentIndex = index;跳转失败 */
+    },
+    //图片加载问题
+    imageLoad() {
+      this.$refs.scroll.refresh();
     },
     //
     addToShop() {},
@@ -428,12 +455,28 @@ export default {
 <style scoped>
 /* @import url(); 引入公共css类 */
 .content {
+  /*topbar44px,bottombar 49px 定位方式*/
   overflow: hidden;
   position: absolute;
-  /*topbar44px,bottombar 49px */
   top: 44px;
   bottom: 49px;
   left: 0;
   right: 0;
+  /*
+
+  height: calc(100%-44px);*/
+}
+/*掩盖之前到的tarbar */
+.detail {
+  height: 100vh;
+  position: relative;
+  z-index: 9;
+  background-color: #fff;
+}
+/*如果滚动的时候narbar被挡上的话 */
+.Nar-bar {
+  position: relative;
+  z-index: 9;
+  background-color: #fff;
 }
 </style>
