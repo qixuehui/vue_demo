@@ -542,7 +542,7 @@ export default {
     //滚动到你之前定位的地址
     this.$refs.scroll.scroll.scrollTo(0, this.saveY, 0);
     //跳转的时候进行刷新一下防止出现问题
-    // this.$refs.Scroll.refresh();
+    this.$refs.scroll.refresh();
   },
   //不活跃 之前这个是不行的 因为需要router.push
   deactivated() {
