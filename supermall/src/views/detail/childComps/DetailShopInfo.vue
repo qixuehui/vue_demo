@@ -34,7 +34,7 @@
       </div>
     </div>
     <!--评分-->
-    <div class="shop-bottom">
+    <div class="shop-bottom" @click="shoper">
       <div class="enter-shop">进店逛逛 ></div>
     </div>
   </div>
@@ -60,7 +60,12 @@ export default {
   //监控data中的数据变化
   watch: {},
   //方法集合
-  methods: {},
+  methods: {
+    //跳转到店铺上
+    shoper() {
+      this.$router.push("/home");
+    },
+  },
   //生命周期 - 创建完成（可以访问当前this实例）
   created() {},
   //生命周期 - 挂载完成（可以访问DOM元素）

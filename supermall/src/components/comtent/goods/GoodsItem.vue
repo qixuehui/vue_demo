@@ -31,6 +31,8 @@ export default {
   //监听属性 类似于data概念
   computed: {
     getImg() {
+      //在home的推荐列表是goods.show.img
+      //在detail的推荐列表是goods.img
       return this.goods.img || this.goods.image || this.goods.show.img;
     },
   },

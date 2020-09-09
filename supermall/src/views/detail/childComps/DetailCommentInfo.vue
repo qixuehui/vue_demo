@@ -6,7 +6,7 @@
     <div class="info-header">
       <div class="header-evaluation">
         <span>买家评价 {{commentInfo.evaluation}} | 销量 {{commentInfo.sales}}</span>
-        <div class="header-more">
+        <div class="header-more" @click="pushmore">
           更多
           <i class="arrow-right"></i>
         </div>
@@ -26,7 +26,7 @@
         <span>{{commentInfo.style}}</span>
       </div>
     </div>
-    <!---->
+    <!--图片信息-->
     <div class="info-imgs">
       <img :src="item" v-for="(item,index) in commentInfo.images" :key="index" alt />
     </div>
@@ -49,7 +49,12 @@ export default {
   //监控data中的数据变化
   watch: {},
   //方法集合
-  methods: {},
+  methods: {
+    pushmore() {
+      //跳转的界面
+      this.$router.push("/home");
+    },
+  },
   //生命周期 - 创建完成（可以访问当前this实例）
   created() {},
   //生命周期 - 挂载完成（可以访问DOM元素）
@@ -107,7 +112,6 @@ export default {
 }
 .info-other {
   margin-right: 8px;
-  color: #ccc;
 }
 .info-other .date {
   display: block;

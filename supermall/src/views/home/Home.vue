@@ -46,6 +46,7 @@ import BackTop from "components/comtent/backTop/BackTop";
 // 方法导入
 import { getHomeMultidata, getHomeData } from "network/home";
 import { debounce } from "../../commons/utils";
+import { imageLoadmixin } from "../../commons/mixin";
 export default {
   name: "Home",
   //自身数据
@@ -110,6 +111,7 @@ export default {
             {
               img:
                 "https://s5.mogucdn.com/mlcdn/776a41/200901_6kd75542ej9j4h32fhgjki0khi6g0_750x1125.jpg_480x640.v1cAC.40.webp",
+
               title:
                 "水梦莱 印花水洗仿真丝四件套北欧春夏裸睡网红款冰丝床上床单被套",
               price: "79",
@@ -118,7 +120,8 @@ export default {
             },
             {
               img:
-                "https://s5.mogucdn.com/mlcdn/c45406/190717_519k5hfhc5dfd6l1e3b241ggj3f7a_640x960.jpg_480x640.v1cAC.40.webp",
+                "https://s5.mogucdn.com/mlcdn/c45406/190717_519k5hfhc5dfd6l1e3b241ggj3f7a_640x960.jpg_440x587.v1cAC.40.webp",
+
               title: "多肉花盆植物拼盘粗陶绿植物简约陶瓷残次花盆陶瓷水泥花盆",
               price: "10.3",
               cfav: "862",
@@ -127,6 +130,7 @@ export default {
             {
               img:
                 "https://s5.mogucdn.com/mlcdn/c45406/200520_351iclablb2543k0g65e3aadk7g21_640x960.jpg_480x640.v1cAC.40.webp",
+
               title:
                 "水洗棉夏被空调被全棉纯色单双人夏季凉被韩式简约学生宿舍薄被子",
               price: "39.9",
@@ -136,6 +140,7 @@ export default {
             {
               img:
                 "https://s5.mogucdn.com/mlcdn/776a41/200901_6kd75542ej9j4h32fhgjki0khi6g0_750x1125.jpg_480x640.v1cAC.40.webp",
+
               title:
                 "水梦莱 印花水洗仿真丝四件套北欧春夏裸睡网红款冰丝床上床单被套",
               price: "79",
@@ -519,6 +524,7 @@ export default {
       tabOffsetTop: 0,
       isShowBackTop: false,
       saveY: 0,
+      itemImage: null,
     };
   },
   //挂载组件
@@ -533,6 +539,7 @@ export default {
     Scroll,
     BackTop,
   },
+  mixins: [imageLoadmixin],
   //摧毁
   destroyed() {
     console.log("home destroyed");
@@ -547,6 +554,8 @@ export default {
   //不活跃 之前这个是不行的 因为需要router.push
   deactivated() {
     this.saveY = this.$refs.scroll.scroll.y;
+    //取消全局监听 为什么需要取消 因为
+    this.$bus.$off("itemImgetLoad", this.itemImage);
   },
   //创建组件的时候，生命周期 用来请求网络数据
   created() {
@@ -568,12 +577,13 @@ export default {
     //目的是为了加载完成在进行计算滚动距离，达到可以自由滚动
     //一次刷新
     let refresh = debounce(this.$refs.scroll.refresh, 500);
-    this.$bus.$on("itemImgetLoad", () => {
+    this.itemImage = () => {
       // console.log(this.$refs.scroll);
       // console.log("xxxxxxxxx");
       // this.$refs.scroll.refresh();
       refresh();
-    });
+    };
+    this.$bus.$on("itemImgetLoad", this.itemImage);
   },
   //普通的方法 它人调用
   methods: {
