@@ -12,7 +12,7 @@
       <DetailDetailInfo :detailInfo="detailInfo" @imageLoad="imageLoad"></DetailDetailInfo>
       <GoodsList :goodsList="recommendList"></GoodsList>
     </Scroll>
-    <DetailBottomBar></DetailBottomBar>
+    <DetailBottomBar @addToCart="addToCart"></DetailBottomBar>
   </div>
 </template>
 <script>
@@ -67,8 +67,9 @@ export default {
         title: "秋季网面ins厚底老爹鞋女2020新款百搭学生运动鞋透气白鞋",
         newPrice: "79.90",
         oldPrice: "398.00",
+        nowPrice: "79.90",
         discount: "20%",
-        // desc = ,
+        desc: "新款百搭学生运动鞋透气白鞋",
         columns: ["销量1149", "收藏33人"],
         services: [
           {
@@ -288,6 +289,17 @@ export default {
     },
     //
     addToShop() {},
+    //
+    addToCart() {
+      console.log("xxxxxxxxx");
+      const product = {};
+      //图片，详情，价格 说明 id
+      product.img = this.topImages[0];
+      product.desc = this.goods.desc;
+      product.price = this.goods.nowPrice;
+      product.title = this.goods.title;
+      product.id = this.iid;
+    },
     //滚动
     _getOffsetTops() {},
     /*网络请求方法 */
@@ -340,7 +352,6 @@ export default {
         });
     },
   },
-  //生命周期 - 创建完成（可以访问当前this实例） 创建组件的时候同时执行
   created() {
     //请求所有数据
     const iid = this.$route.query.iid;
@@ -352,16 +363,13 @@ export default {
     //请求推荐信息
     getRecommend();
   },
-  //生命周期 - 挂载完成（可以访问DOM元素）创建组件完成后需要执行的函数
   mounted() {
     this.$refs.scroll.refresh();
     //使用了mixin
   },
-  //beforeCreate() {}, //生命周期 - 创建之前
-  //beforeMount() {}, //生命周期 - 挂载之前
-  //beforeUpdate() {}, //生命周期 - 更新之前
+
   updated() {}, //生命周期 - 更新之后
-  //beforeDestroy() {}, //生命周期 - 销毁之前
+
   destroyed() {
     console.log("destroyed");
   }, //生命周期 - 销毁完成
@@ -371,7 +379,6 @@ export default {
 };
 </script>
 <style scoped>
-/* @import url(); 引入公共css类 */
 .content {
   /*topbar44px,bottombar 49px 定位方式*/
   overflow: hidden;

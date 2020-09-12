@@ -4,6 +4,13 @@
     <Navbar class="nav-bar">
       <div slot="center">购物街</div>
     </Navbar>
+    <tab-control
+      class="tab-control"
+      :titles="['流行', '新款', '精选']"
+      @itemClick="ControlClick"
+      v-show="isShowBar"
+      ref="tabcontrolclick2"
+    />
     <scroll
       class="content"
       ref="scroll"
@@ -523,6 +530,7 @@ export default {
       isShowBackTop: false,
       tabOffsetTop: 0,
       isShowBackTop: false,
+      isShowBar: false,
       saveY: 0,
       itemImage: null,
     };
@@ -602,6 +610,12 @@ export default {
           this.currenttype = "sell";
           break;
       }
+      //将两个的currentIndex都赋值index
+      //防止没有加载成功的时候this.$refs.tabcontrolclick2为undefined情况
+      if (this.$refs.tabcontrolclick2 !== undefined) {
+        this.$refs.tabcontrolclick.currentIndex = index;
+        this.$refs.tabcontrolclick2.currentIndex = index;
+      }
     },
     //监听滚动-滚到0,0的位置 点击backtop
     backClick() {
@@ -613,7 +627,8 @@ export default {
       this.isShowBackTop = -position.y > 1000;
       //吸顶不吸顶 fixed
       //+ 300是因为我的数据不是获取的是本地的导致发生问题 在刷新会没有轮播图的大小
-      this.isShowBackTop = -position.y > this.tabOffsetTop + 300;
+      this.isShowBackTop = -position.y > this.tabOffsetTop + 250;
+      this.isShowBar = -position.y > this.tabOffsetTop + 250;
     },
     //上拉加载更多 获取下一页数据
     loadmsg() {

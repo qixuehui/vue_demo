@@ -35,6 +35,8 @@ export default {
   //方法集合
   methods: {
     addToCart() {
+      //后续 跳转 在进行挑选
+      //现在先进行跳出先
       this.$emit("addToCart");
     },
   },
